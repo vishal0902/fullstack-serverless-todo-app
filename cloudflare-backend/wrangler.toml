@@ -1,0 +1,22 @@
+name = "cloudflare-backend"
+compatibility_date = "2023-12-01"
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZjExZDNkNDMtNzdiZS00YzRmLTg0NGYtY2I0MDk4ODhlZmNiIiwidGVuYW50X2lkIjoiOTAwOWRiOWJjMjY0ZGM3NWE4OWIwMWI0YmZjNzFlMDk0NTFjNzJlZGU2NDk4MmY2ZWQ0ODI1YTY3YmM0ODc4YyIsImludGVybmFsX3NlY3JldCI6IjFiYjIzYzQ4LTliOGQtNDUxMS04YWQzLTZmYzExYzNmYWE5ZSJ9.2apAt6lGhWiiEMOhLxjp02g-siYHCVvwCJSJY09DAKY"
+JWT_SECRET = "hELLOwORLD"
+
+
+# MY_VARIABLE = "production_value"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
