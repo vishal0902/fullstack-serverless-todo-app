@@ -97,7 +97,7 @@ export default function Dashboard() {
             </div>
 
             <div className="md:block hidden col-span-1 text-2xl text-center text-teal-500">
-              hello, {firstName} {lastName}
+              Hello, {firstName} {lastName}
             </div>
 
             <div className="flex justify-end">
