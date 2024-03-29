@@ -6,11 +6,13 @@ import Signup from './components/Signup'
 import Signin from './components/Signin'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Dashboard from './components/Dashboard'
+import {RecoilRoot} from 'recoil'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
+        <RecoilRoot>
     <div className='font-normal antialiased'>
         <BrowserRouter>
           <Routes>
@@ -20,6 +22,7 @@ function App() {
           </Routes>
         </BrowserRouter>
     </div>
+    </RecoilRoot>
     )
 }
 

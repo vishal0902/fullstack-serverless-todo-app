@@ -54,7 +54,7 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <div className="bg-gray-700 min-h-[65vh] w-96 pt-5 rounded-md ">
+      <div className="bg-gray-700 max-h-full w-96 pt-14 pb-8 rounded-md ">
         <div className="mb-10 flex text-center">
           <Heading text="Sign up" />
         </div>
@@ -64,31 +64,31 @@ export default function Signup() {
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
             label="E-MAIL"
-            placeholder="Your email here"
+            placeholder="username@email.com"
           />
           <InputBox
             type="text"
             value={firstName}
             onChange={(e: any) => setFirstName(e.target.value)}
             label="FIRST NAME"
-            placeholder="Enter your first name here."
+            placeholder="Enter first name here"
           />
           <InputBox
             type="text"
             value={lastName}
             onChange={(e: any) => setLastName(e.target.value)}
             label="LAST NAME"
-            placeholder="Enter your last name here."
+            placeholder="Last name here"
           />
           <InputBox
             type="password"
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
             label="PASSWORD"
-            placeholder="Your password here"
+            placeholder="Password here"
           />
           <Button buttonText="Signup" onClick={handleSubmit} />
-          <div className="text-white text-center text-sm mt-3 pb-5">
+          <div className="text-white text-center text-md mt-3 mb-5">
             Already a user?{" "}
             <span
               className="cursor-pointer underline hover:text-teal-400"

@@ -12,7 +12,7 @@ export default function AddTodo({title, description, setTitle, setDescription, a
 
   return (
     <div className='w-96 mt-10'>
-            <div className=' bg-gray-700 pt-6 min-h-[65vh] rounded-md '>
+            <div className=' bg-gray-700 rounded-md max-h-full w-96 pt-10 pb-8 '>
                 <div className='mb-10 flex text-center'>
                     <Heading text="Add Your Todo" />
                 </div>
