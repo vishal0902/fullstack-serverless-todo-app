@@ -71,7 +71,7 @@ userRouter.post("/signin", async (c) => {
   });
   if (!user) {
     c.status(403);
-    return c.json({ error: "error while signing in" });
+    return c.json({ error: "Invalid credentials" });
   }
   const token = await sign({ id: user.id }, c.env.JWT_SECRET);
   return c.json({

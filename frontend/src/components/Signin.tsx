@@ -6,6 +6,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../config";
 import Loader from "../ui/Loader";
+import {toast, Slide, Bounce} from "react-toastify"
+
 
 export default function Sigin() {
   const [email, setEmail] = useState("");
@@ -15,6 +17,22 @@ export default function Sigin() {
   //@ts-ignore
 
   const navigate = useNavigate();
+
+  function notify(msg:string) {
+    toast.warn(msg, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce
+      
+      });
+   
+  }
 
   const handleSubmit = async () => {
     setLoading(true)
@@ -35,19 +53,13 @@ export default function Sigin() {
         }
       })
       .catch((error) => {
-        console.log(error);
-        // setErrorMessage(error.response.data.message)
+        setLoading(false)
+        notify(error.response.data.error.toString());
       });
   };
 
 
- if(loading){
-  return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <Loader />
-    </div>
-  )
- }
+ 
 
   return (
     <div className="flex flex-col h-screen justify-center items-center">
@@ -70,7 +82,7 @@ export default function Sigin() {
             label="PASSWORD"
             placeholder="Enter your password here"
           />
-          <Button buttonText="Sigin" onClick={handleSubmit} />
+          {loading ? <div className="flex justify-center mt-3"><Loader /></div> : <div className="mt-3"><Button buttonText="Signin"  onClick={handleSubmit} /></div>}
           <div className="text-white text-center text-md mt-3 mb-5">
             New to Todoosh?{" "}
             <span

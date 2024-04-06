@@ -8,8 +8,6 @@ import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import { BACKEND_URL } from "../config";
 import Loader from "../ui/Loader";
-import { useRecoilValue } from "recoil";
-import { todoSelector } from "../store/atoms/todos";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -23,8 +21,7 @@ export default function Dashboard() {
   const [addTodoLoader, setAddTodoLoader] = useState(false)
 
 
-  // const userData = useRecoilValue(todoSelector)
-  // console.log(userData)
+ 
 
   const getTodos = async () => {
     await axios({

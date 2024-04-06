@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../config";
 import Loader from "../ui/Loader";
+import {toast, Slide} from "react-toastify"
 
 export default function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +16,21 @@ export default function Signup() {
   const [loading, setLoading] = useState(false)
   // const [errorMessage, setErrorMessage] = useState('')
 
+  function notify(msg:string) {
+    toast.warn(msg, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Slide
+      
+      });
+   
+  }
   
 
   const navigate = useNavigate();
@@ -39,22 +55,17 @@ export default function Signup() {
         }
       })
       .catch((error) => {
-        console.log(error);
-        // setErrorMessage(error)
+        setLoading(false)
+        notify(error.response.data.error.toString());
       });
   };
 
-  if(loading){
-    return (
-      <div className="h-screen w-screen flex flex-col justify-center items-center">
-        <Loader />
-      </div>
-    )
-   }
+
 
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <div className="bg-gray-700 max-h-full w-96 pt-14 pb-8 rounded-md ">
+      
+      <div className="bg-gray-700 max-h-full w-96 pt-10 pb-6 rounded-md ">
         <div className="mb-10 flex text-center">
           <Heading text="Sign up" />
         </div>
@@ -87,7 +98,8 @@ export default function Signup() {
             label="PASSWORD"
             placeholder="Password here"
           />
-          <Button buttonText="Signup" onClick={handleSubmit} />
+          <div className="text-white text-xs px-4 mb-2">Password length minimum 6 characters</div>
+          {loading ? <div className="flex justify-center"><Loader /></div> : <Button buttonText="Signup" onClick={handleSubmit} />}
           <div className="text-white text-center text-md mt-3 mb-5">
             Already a user?{" "}
             <span
@@ -98,6 +110,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-    </div>
+     </div>
   );
 }
